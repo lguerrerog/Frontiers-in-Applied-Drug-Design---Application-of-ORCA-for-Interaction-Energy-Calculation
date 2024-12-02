@@ -44,3 +44,7 @@ It is also possible to use coordinates from an external file by adding the path 
 
 
 ### Output Files
+%to do
+%calculation of contributions
+%link to constrain optimization
+
