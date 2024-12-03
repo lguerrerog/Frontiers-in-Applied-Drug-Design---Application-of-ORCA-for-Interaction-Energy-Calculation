@@ -53,22 +53,32 @@ It is possible to add ORCA to the PATH in a single computer, but when running OR
 If the output file is not given, the results of the calculations are printed in the terminal. Some of these can be very long depending on the size of the molecules, so it is always recommended to save it into an output file.
 
 ### Output Files
-ORCA creates a directory with the output files. Here is a breif description of them.
+ORCA creates a directory with the output files. Here is a brief description of them.
 * .out: This is the principal output file with the input details, progress updates, and final results.
-* .inp: This file stores the exact file that was given as input for the calculation.
+* .inp: This file stores the exact file given as input for the calculation.
 * .xyz: In geometry optimization, this file contains the corrected coordinates at the end of the optimization.
 * _trj.xyz: This is the trajectory file, containing the geometry at each step of the calculation in XYZ format.
 * .bibtex: This file has the citation information for the methods and basis sets used.
 * .densities and .densitiesinfo: This file has information about the electron density. The first is in binary format and the second shows the metadata for easier interpretation.
-* .engrad: Is the energy gradient file with the computed gradients (forces) on the nuclei at the current geometry.
+* .engrad: This is the energy gradient file with the computed gradients (forces) on the nuclei at the current geometry.
 * .gbw: This is the wavefunction file which contains the molecular orbitals and wavefunction data.
 * .property.txt: This file contains a summary of molecular properties calculated during the run.
 * .loc: In the DLPNO-CCSD(T) calculation, this file contains data about the Local Pair Natural Orbitals (LPNOs).
-* .ges: The general energy storage file contains detailed energy information, useful for following calculations.
-%to do
+* .ges: The general energy storage file contains detailed energy information that is useful for the following calculations.
+  
 
 ### Calculation of Energy Contributions in LED Analysis.
-$\Delta E_{int} = \Delta E_{el-prep}^{ref} + \Delta E_{elsts}^{ref} + \Delta E_{exch}^{ref} + \Delta E_{non-dispersion}^{C-CCSD} + \Delta E_{dispersion}^{C-CCSD} + \Delta E_{int}^{C-(T)}$
+The calculation of the total energy interactions between the residue and the ligand was calculated with the following equation, taken from the [LED section](https://www.faccts.de/docs/orca/6.0/tutorials/prop/led.html) in ORCA's manual.
+$$\Delta E_{int} = \Delta E_{el-prep}^{ref} + \Delta E_{elsts}^{ref} + \Delta E_{exch}^{ref} + \Delta E_{non-dispersion}^{C-CCSD} + \Delta E_{dispersion}^{C-CCSD} + \Delta E_{int}^{C-(T)}$$
+
+The electrostatic and the exchange energy are given directly in the output file from the LED analysis of the complex:
+$$\Delta E_{elsts}^{ref} = -0.026346689$$
+$$\Delta E_{exch}^{ref} = -0.007950562$$
+The dispersion energy is the sum of the two dispersion values in this output file:
+$$\Delta E_{dispersion}^{C-CCSD} = Dispersion (strong pairs) + Dispersion (weak pairs) = -0.001942662 + \left(-0.006034170\right)$$
+
+For the preparation energy calculation, we need the information of the Intra fragment in the complex output file and the E0 value for each of the fragments that is contained in the output of each them alone.
+$$\Delta E_{el-prep}^{ref} = \left(Intra fragment 1 \left(REF.\right) - E\left(0\right)\right) + \left(Intra fragment 2 \left(REF.\right) - E\left(0\right)\right) = (-1069.405210714 - (-1069.428347806)) +  (-359.220798454 - (-359.233055993)) = $$
 
 
 %link to constrain optimization
