@@ -52,6 +52,8 @@ It is possible to add ORCA to the PATH in a single computer, but when running OR
 
 If the output file is not given, the results of the calculations are printed in the terminal. Some of these can be very long depending on the size of the molecules, so it is always recommended to save it into an output file.
 
+Since the major problem in this project that led to a very small interaction energy was the preparation energy, which is influenced by the geometry of the system, I looked at some useful considerations for the optimization. In this section of the [manual](https://orca-manual.mpi-muelheim.mpg.de/contents/detailed/geomopt.html) there are keywords detailed for running the optimization in a more refined and specific way. Additionally, I suggested that part of the problem was that my optimization only took the hydrogen atoms into account, leaving the rest of the atoms fixed. However, in the paper some specific atoms were constrained and the optimization was done in the rest to simulate a more realistic scenario. A guide to do this is presented [here]“https://www.faccts.de/docs/orca/6.0/manual/contents/typical/optimizations.html).
+
 ### Output Files
 ORCA creates a directory with the output files. Here is a brief description of them.
 * .out: This is the principal output file with the input details, progress updates, and final results.
@@ -77,11 +79,11 @@ The calculation of the total energy interactions between the residue and the lig
 The electrostatic and the exchange energy are given directly in the output file from the LED analysis of the complex:
 
 ```math
-\Delta E_{elsts}^{ref} = -0.026346689
+\Delta E_{elsts}^{ref} = -0.026346689 Eh
 ```
 
 ```math
-\Delta E_{exch}^{ref} = -0.007950562
+\Delta E_{exch}^{ref} = -0.007950562 Eh
 ```
 The dispersion energy is the sum of the two dispersion values in this output file:
 
@@ -89,7 +91,7 @@ The dispersion energy is the sum of the two dispersion values in this output fil
 $$\eqalign{ 
 \Delta E_{dispersion}^{C-CCSD} &= Dispersion (strong pairs) + Dispersion (weak pairs) \\
 &= -0.001942662 + \left(-0.006034170\right) \\ 
-&= -0.007976832
+&= -0.007976832 Eh
 }$$
 
 
@@ -98,7 +100,7 @@ For the preparation energy calculation, we need the information of the Intra fra
 $$\eqalign{
 \Delta E_{el-prep}^{ref} &= (Intra fragment 1 (REF.) - E(0)\_{frag1}) + (Intra fragment 2 (REF.) - E(0)_{frag2}) \\ 
 &= (-1069.405210714 - (-1069.428347806)) +  (-359.220798454 - (-359.233055993)) \\ 
-&= 0.03539463099986051
+&= 0.03539463099986051 Eh
 }$$
 
 The non-dispersion correlation energy calculation is as follows:
@@ -106,7 +108,7 @@ The non-dispersion correlation energy calculation is as follows:
 $$\eqalign{
 \Delta E_{non-dispersion}^{C-CCSD} &= (Non dispersion (strong pairs) + Non dispersion (weak pairs)) - (E(CORR)(corrected)\_{frag1} + E(CORR)(corrected)_{frag2}) \\ 
 &= (-3.041870050+(-0.015073379))-(-1.880537976 + (-1.175169112)) \\ 
-&= -0.0012363409999998076
+&= -0.0012363409999998076 Eh
 }$$
 
 Finally, the triple excitation correlation energy is calculated as follows:
@@ -114,12 +116,12 @@ Finally, the triple excitation correlation energy is calculated as follows:
 $$\eqalign{
 \Delta E_{int}^{C-(T)} &= (Triples Correction (T)\_{complex} - (Triples Correction (T)\_{frag1} + Triples Correction (T)_{frag2}) \\ 
 &= -0.118432443 -(-0.066449215 + (-0.051620108)) \\ 
-&= -0.00036311999999999456
+&= -0.00036311999999999456 Eh
 }$$
 
 The sum of all these contributions gives the total interaction energy of the system:
 ```math
-\Delta E_{int} = -0.00847891300013929
+\Delta E_{int} = -0.00847891300013929 Eh = -22.26138608186571 kJ/mol
 ```
 
 
