@@ -96,19 +96,25 @@ $$\eqalign{
 For the preparation energy calculation, we need the information of the Intra fragment in the complex output file and the E0 value for each of the fragments that is contained in the output of each them alone.
 
 $$\eqalign{
-\Delta E_{el-prep}^{ref} &= \left(Intra fragment 1 \left(REF.\right) - E\left(0\right)_{frag1}\right) + \left(Intra fragment 2 \left(REF.\right) - E\left(0\right)_{frag2}\right) \\ &= (-1069.405210714 - (-1069.428347806)) +  (-359.220798454 - (-359.233055993)) \\ &= 0.03539463099986051
+\Delta E_{el-prep}^{ref} &= \left(Intra fragment 1 \left(REF.\right) - E\left(0\right)_{frag1}\right) + \left(Intra fragment 2 \left(REF.\right) - E\left(0\right)_{frag2}\right) \\ 
+&= (-1069.405210714 - (-1069.428347806)) +  (-359.220798454 - (-359.233055993)) \\ 
+&= 0.03539463099986051
 }$$
 
 The non-dispersion correlation energy calculation is as follows:
 
 $$\eqalign{
-\Delta E_{non-dispersion}^{C-CCSD} &= (Non dispersion (strong pairs) + Non dispersion (weak pairs)) - (E(CORR)(corrected)_{frag1} + E(CORR)(corrected)_{frag2}) \\ &= (-3.041870050+(-0.015073379))-(-1.880537976 + (-1.175169112)) \\ &= -0.0012363409999998076
+\Delta E_{non-dispersion}^{C-CCSD} &= (Non dispersion (strong pairs) + Non dispersion (weak pairs)) - (E(CORR)(corrected)_{frag1} + E(CORR)(corrected)_{frag2}) \\ 
+&= (-3.041870050+(-0.015073379))-(-1.880537976 + (-1.175169112)) \\ 
+&= -0.0012363409999998076
 }$$
 
 Finally, the triple excitation correlation energy is calculated as follows:
 
 $$\eqalign{
-\Delta E_{int}^{C-(T)} &= (Triples Correction (T)_{complex} - (Triples Correction (T)_{frag1} + Triples Correction (T)_{frag2}) \\ &= -0.118432443 -(-0.066449215 + (-0.051620108)) \\ &= -0.00036311999999999456
+\Delta E_{int}^{C-(T)} &= (Triples Correction (T)_{complex} - (Triples Correction (T)_{frag1} + Triples Correction (T)_{frag2}) \\ 
+&= -0.118432443 -(-0.066449215 + (-0.051620108)) \\ 
+&= -0.00036311999999999456
 }$$
 
 The sum of all these contributions gives the total interaction energy of the system:
