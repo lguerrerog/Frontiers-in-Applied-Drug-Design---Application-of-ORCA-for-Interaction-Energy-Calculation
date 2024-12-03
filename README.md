@@ -1,6 +1,6 @@
 # Frontiers-in-Applied-Drug-Design---Application-of-ORCA-for-Interaction-Energy-Calculation
 
-In this repository, I report the process of my project of applying the tool ORCA, using the coupled cluster method with singles, doubles, and perturbatively included triples excitations with the linear-scaling domain-based local pair natural orbital, DLPNO-CCSD(T).
+In this repository, I report the process of my project of applying the tool ORCA, using the coupled cluster method with singles, doubles, and perturbatively included triples excitations with the linear-scaling domain-based local pair natural orbital, DLPNO-CCSD(T), followed by a local energy decomposition (LED) analysis.
 
 
 ### ORCA 6.0 installation 
