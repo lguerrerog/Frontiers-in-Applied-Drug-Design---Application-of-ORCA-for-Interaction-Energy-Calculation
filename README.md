@@ -5,7 +5,7 @@ In this repository, I report the process of my project of applying the tool ORCA
 
 ### ORCA 6.0 installation 
 
-The latest version of ORCA for each operating system is available for downloading in the [official forum](https://orcaforum.kofo.mpg.de/). The information about setting ORCA to run in parallel on multiple cores is found [here](https://sites.google.com/site/orcainputlibrary/setting-up-orca) and the explanaition on how to run it with this option is found in the [manual](https://www.faccts.de/docs/orca/5.0/tutorials/first_steps/parallel.html).
+The latest version of ORCA for each operating system is available for download in the [official forum](https://orcaforum.kofo.mpg.de/). The information about setting ORCA to run in parallel on multiple cores is found [here](https://sites.google.com/site/orcainputlibrary/setting-up-orca) and the explanation on how to run it with this option is found in the [manual](https://www.faccts.de/docs/orca/5.0/tutorials/first_steps/parallel.html).
 
 This project was run in serial with a single computer of 16GB RAM.
 
@@ -72,19 +72,41 @@ The calculation of the total energy interactions between the residue and the lig
 
 
 ```math
-\Delta E_{int} = \Delta E_{el-prep}^{ref} + \Delta E_{elsts}^{ref} + \Delta E_{exch}^{ref} + \Delta E_{non-dispersion}^{C-CCSD} + \Delta E_{dispersion}^{C-CCSD} + \Delta E_{int}^{C-(T)}$$
+\Delta E_{int} = \Delta E_{el-prep}^{ref} + \Delta E_{elsts}^{ref} + \Delta E_{exch}^{ref} + \Delta E_{non-dispersion}^{C-CCSD} + \Delta E_{dispersion}^{C-CCSD} + \Delta E_{int}^{C-(T)}
 ```
 The electrostatic and the exchange energy are given directly in the output file from the LED analysis of the complex:
-$$\Delta E_{elsts}^{ref} = -0.026346689$$
-$$\Delta E_{exch}^{ref} = -0.007950562$$
+
+```math
+\Delta E_{elsts}^{ref} = -0.026346689
+```
+
+```math
+\Delta E_{exch}^{ref} = -0.007950562
+```
 The dispersion energy is the sum of the two dispersion values in this output file:
-$$\Delta E_{dispersion}^{C-CCSD} = Dispersion (strong pairs) + Dispersion (weak pairs) = -0.001942662 + \left(-0.006034170\right)$$
+
+```math
+\Delta E_{dispersion}^{C-CCSD} = Dispersion (strong pairs) + Dispersion (weak pairs) = -0.001942662 + \left(-0.006034170\right) = -0.007976832
+```
 
 For the preparation energy calculation, we need the information of the Intra fragment in the complex output file and the E0 value for each of the fragments that is contained in the output of each them alone.
 
 ```math
-\Delta E_{el-prep}^{ref} = \left(Intra fragment 1 \left(REF.\right) - E\left(0\right)\right) + \left(Intra fragment 2 \left(REF.\right) - E\left(0\right)\right) = (-1069.405210714 - (-1069.428347806)) +  (-359.220798454 - (-359.233055993)) = $$
+\Delta E_{el-prep}^{ref} = \left(Intra fragment 1 \left(REF.\right) - E\left(0\right)_{frag1}\right) + \left(Intra fragment 2 \left(REF.\right) - E\left(0\right)_{frag2}\right) = (-1069.405210714 - (-1069.428347806)) +  (-359.220798454 - (-359.233055993)) = 0.03539463099986051
+```
+The non-dispersion correlation energy calculation is as follows:
+```math
+\Delta E_{non-dispersion}^{C-CCSD} = (Non dispersion (strong pairs) + Non dispersion (weak pairs)) - (E(CORR)(corrected)_{frag1} + E(CORR)(corrected)_{frag2}) = (-3.041870050+(-0.015073379))-(-1.880537976 + (-1.175169112)) = -0.0012363409999998076
+```
+Finally, the triple excitation correlation energy is calculated as follows:
+```math
+\Delta E_{int}^{C-(T)} = (Triples Correction (T)_{complex} - (Triples Correction (T)_{frag1} + Triples Correction (T)_{frag2}) = -0.118432443 -(-0.066449215 + (-0.051620108)) = -0.00036311999999999456
 ```
 
-%link to constrain optimization
+The sum of all these contributions gives the total interaction energy of the system:
+```math
+\Delta E_{int} = -0.00847891300013929
+```
+
+
 
