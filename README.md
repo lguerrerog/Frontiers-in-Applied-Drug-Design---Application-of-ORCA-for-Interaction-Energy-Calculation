@@ -13,13 +13,13 @@ This project was run in serial with a single computer of 16GB RAM.
 ### Input File
 #### Format
 
-The input file in ORCA consists of a free format file with a header in the first line, always starting with "!", followed by the main options indicating the methods that are used for the calculation. Each method is defined by a keyword. A list of these keywords is presented in the [manual of version 4.2.1](https://www.afs.enea.it/software/orca/orca_manual_4_2_1.pdf) in section 6.2.1, but they should be double checked in case of modification in newer versions of the software. A newer version of the manual with all the methods available and their respective keywords are found [here](https://www.faccts.de/docs/orca/6.0/manual/contents/docu.html)
+The input file in ORCA consists of a free format file with a header in the first line, always starting with "!", followed by the main options indicating the methods that are used for the calculation. Each method is defined by a keyword. A list of these keywords is presented in the [manual of version 4.2.1](https://www.afs.enea.it/software/orca/orca_manual_4_2_1.pdf) in section 6.2.1, but they should be double checked in case of modification in newer versions of the software. A newer version of the manual with all the methods available and their respective keywords is found [here](https://www.faccts.de/docs/orca/6.0/manual/contents/docu.html).
 
 As an example, the header of the input file used for the geometrical optimization in this project, which indicates the use of the Hartree–Fock method with dispersion correction and a tight SCF convergence, is 
 ```bash
 !HF-3c OPT TightSCF
 ```
-It is important to note that ORCA is not case-sensitive, so an input with options like `!hf-3c opt tightscf` will be read the like the one above.
+It is important to note that ORCA is not case-sensitive, so an input with options like `!hf-3c opt tightscf` will be read like the one above.
 
 There could be a block for more specific options if it is needed which always starts with "%" and ends with "END". 
 
@@ -42,7 +42,7 @@ In this project, all the structures have their coordinates in format .xyz, the c
 ```
 It is also possible to use coordinates from an external file by adding the path to the file at the last position in the first line of this section. In this case, the final * is not needed.
 
-### Runnig ORCA
+### Running ORCA
 To run the program I used the command:
 ```bash
 PATH/to/ORCA_6.0 input_file.inp > output_file.out
@@ -52,7 +52,7 @@ It is possible to add ORCA to the PATH in a single computer, but when running OR
 
 If the output file is not given, the results of the calculations are printed in the terminal. Some of these can be very long depending on the size of the molecules, so it is always recommended to save it into an output file.
 
-Since the major problem in this project that led to a very small interaction energy was the preparation energy, which is influenced by the geometry of the system, I looked at some useful considerations for the optimization. In this section of the [manual](https://orca-manual.mpi-muelheim.mpg.de/contents/detailed/geomopt.html) there are keywords detailed for running the optimization in a more refined and specific way. Additionally, I suggested that part of the problem was that my optimization only took the hydrogen atoms into account, leaving the rest of the atoms fixed. However, in the paper some specific atoms were constrained and the optimization was done in the rest to simulate a more realistic scenario. A guide to do this is presented [here](https://www.faccts.de/docs/orca/6.0/manual/contents/typical/optimizations.html).
+Since the major problem in this project that led to a very small interaction energy was the preparation energy, which is influenced by the geometry of the system, I looked at some useful considerations for the optimization. In this section of the [manual](https://orca-manual.mpi-muelheim.mpg.de/contents/detailed/geomopt.html) there are keywords detailed for running the optimization in a more refined and specific way. Additionally, I suggested that part of the problem was that my optimization only took the hydrogen atoms into account, leaving the rest of the atoms fixed. However, in the paper, some specific atoms were constrained and the optimization was done in the rest to simulate a more realistic scenario. A guide for this is presented [here](https://www.faccts.de/docs/orca/6.0/manual/contents/typical/optimizations.html).
 
 ### Output Files
 ORCA creates a directory with the output files. Here is a brief description of them.
