@@ -69,8 +69,11 @@ ORCA creates a directory with the output files. Here is a brief description of t
 
 ### Calculation of Energy Contributions in LED Analysis.
 The calculation of the total energy interactions between the residue and the ligand was calculated with the following equation, taken from the [LED section](https://www.faccts.de/docs/orca/6.0/tutorials/prop/led.html) in ORCA's manual.
-$$\Delta E_{int} = \Delta E_{el-prep}^{ref} + \Delta E_{elsts}^{ref} + \Delta E_{exch}^{ref} + \Delta E_{non-dispersion}^{C-CCSD} + \Delta E_{dispersion}^{C-CCSD} + \Delta E_{int}^{C-(T)}$$
 
+
+```math
+\Delta E_{int} = \Delta E_{el-prep}^{ref} + \Delta E_{elsts}^{ref} + \Delta E_{exch}^{ref} + \Delta E_{non-dispersion}^{C-CCSD} + \Delta E_{dispersion}^{C-CCSD} + \Delta E_{int}^{C-(T)}$$
+```
 The electrostatic and the exchange energy are given directly in the output file from the LED analysis of the complex:
 $$\Delta E_{elsts}^{ref} = -0.026346689$$
 $$\Delta E_{exch}^{ref} = -0.007950562$$
@@ -78,8 +81,10 @@ The dispersion energy is the sum of the two dispersion values in this output fil
 $$\Delta E_{dispersion}^{C-CCSD} = Dispersion (strong pairs) + Dispersion (weak pairs) = -0.001942662 + \left(-0.006034170\right)$$
 
 For the preparation energy calculation, we need the information of the Intra fragment in the complex output file and the E0 value for each of the fragments that is contained in the output of each them alone.
-$$\Delta E_{el-prep}^{ref} = \left(Intra fragment 1 \left(REF.\right) - E\left(0\right)\right) + \left(Intra fragment 2 \left(REF.\right) - E\left(0\right)\right) = (-1069.405210714 - (-1069.428347806)) +  (-359.220798454 - (-359.233055993)) = $$
 
+```math
+\Delta E_{el-prep}^{ref} = \left(Intra fragment 1 \left(REF.\right) - E\left(0\right)\right) + \left(Intra fragment 2 \left(REF.\right) - E\left(0\right)\right) = (-1069.405210714 - (-1069.428347806)) +  (-359.220798454 - (-359.233055993)) = $$
+```
 
 %link to constrain optimization
 
