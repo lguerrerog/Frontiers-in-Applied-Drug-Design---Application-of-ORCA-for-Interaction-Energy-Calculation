@@ -55,7 +55,7 @@ If the output file is not given, the results of the calculations are printed in 
 Since the major problem in this project that led to a very small interaction energy was the preparation energy, which is influenced by the geometry of the system, I looked at some useful considerations for the optimization. In this section of the [manual](https://orca-manual.mpi-muelheim.mpg.de/contents/detailed/geomopt.html) there are keywords detailed for running the optimization in a more refined and specific way. Additionally, I suggested that part of the problem was that my optimization only took the hydrogen atoms into account, leaving the rest of the atoms fixed. However, in the paper, some specific atoms were constrained and the optimization was done in the rest to simulate a more realistic scenario. A guide for this is presented [here](https://www.faccts.de/docs/orca/6.0/manual/contents/typical/optimizations.html).
 
 #### Parameters used
-The input files for the optimization had the following parameters:
+The complete input files with the parameters andcoordinates are included in this repository. Here, I want to show only the first line with the parameters and the option block used for each calculation.
 ```bash
 ! HF-3c Opt TightSCF
 
@@ -68,7 +68,7 @@ end
 *
 ```
 
-The input file for the energy calculation and LED analysis of the complex protein-ligand had the following parameters:
+The input file for the energy calculation and LED analysis of the complex protein-ligand had the following parameters. In this file, it is important that each fragment is differentiated with an identifier next to the name of the atom.
 ```bash
 ! DLPNO-CCSD(T) def2-sVP def2-SVP/C TightSCF RIJCOSX LED
 
