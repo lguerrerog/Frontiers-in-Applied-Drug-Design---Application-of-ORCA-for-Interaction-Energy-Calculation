@@ -104,7 +104,7 @@ $$\eqalign{
 The non-dispersion correlation energy calculation is as follows:
 
 $$\eqalign{
-\Delta E_{non-dispersion}^{C-CCSD} &= (Non dispersion (strong pairs) + Non dispersion (weak pairs)) - (E(CORR)(corrected)_{frag1} + E(CORR)(corrected)_{frag2}) \\ 
+\Delta E_{non-dispersion}^{C-CCSD} &= (Non dispersion (strong pairs) + Non dispersion (weak pairs)) - (E(CORR)(corrected)\_{frag1} + E(CORR)(corrected)_{frag2}) \\ 
 &= (-3.041870050+(-0.015073379))-(-1.880537976 + (-1.175169112)) \\ 
 &= -0.0012363409999998076
 }$$
@@ -112,7 +112,7 @@ $$\eqalign{
 Finally, the triple excitation correlation energy is calculated as follows:
 
 $$\eqalign{
-\Delta E_{int}^{C-(T)} &= (Triples Correction (T)_{complex} - (Triples Correction (T)_{frag1} + Triples Correction (T)_{frag2}) \\ 
+\Delta E_{int}^{C-(T)} &= (Triples Correction (T)\_{complex} - (Triples Correction (T)\_{frag1} + Triples Correction (T)_{frag2}) \\ 
 &= -0.118432443 -(-0.066449215 + (-0.051620108)) \\ 
 &= -0.00036311999999999456
 }$$
