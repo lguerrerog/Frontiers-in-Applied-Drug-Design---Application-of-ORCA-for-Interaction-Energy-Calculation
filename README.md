@@ -86,8 +86,7 @@ The electrostatic and the exchange energy are given directly in the output file 
 The dispersion energy is the sum of the two dispersion values in this output file:
 
 ```math
-\Delta E_{dispersion}^{C-CCSD} = Dispersion (strong pairs) + Dispersion (weak pairs)\\
- &= -0.001942662 + \left(-0.006034170\right) = -0.007976832
+\Delta E_{dispersion}^{C-CCSD} = Dispersion (strong pairs) + Dispersion (weak pairs)\\ &= -0.001942662 + \left(-0.006034170\right) = -0.007976832
 ```
 
 For the preparation energy calculation, we need the information of the Intra fragment in the complex output file and the E0 value for each of the fragments that is contained in the output of each them alone.
