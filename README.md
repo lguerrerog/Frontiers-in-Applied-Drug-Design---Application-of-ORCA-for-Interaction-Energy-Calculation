@@ -96,7 +96,7 @@ $$\eqalign{
 For the preparation energy calculation, we need the information of the Intra fragment in the complex output file and the E0 value for each of the fragments that is contained in the output of each them alone.
 
 $$\eqalign{
-\Delta E_{el-prep}^{ref} &= \left(Intra fragment 1 \left(REF.\right) - E\left(0\right)_{frag1}\right) + \left(Intra fragment 2 \left(REF.\right) - E\left(0\right)_{frag2}\right) \\ 
+\Delta E_{el-prep}^{ref} &= (Intra fragment 1 (REF.) - E(0)\_{frag1}) + (Intra fragment 2 (REF.) - E(0)_{frag2}) \\ 
 &= (-1069.405210714 - (-1069.428347806)) +  (-359.220798454 - (-359.233055993)) \\ 
 &= 0.03539463099986051
 }$$
